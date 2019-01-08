@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染</title>
+    <script src="Vue.js"></script>
+</head>
+
+<body>
+    <ul id="example-1">
+        <li v-for="(item,index) in items" :key="item.id">
+            {{item}}
+            <!-- {{item.text}}---{{item.id}} -->
+        </li>
+    </ul>
+    <script>
+    var vm = new Vue({
+        el: "#example-1",
+        data: {
+            items: [1, 2, 3, 4
+                // {
+                //         id: '23',
+                //         text: 'Foo'
+                //     },
+                //     {
+                //         id: '23123',
+                //         text: 'Aovoo'
+                //     },
+                //     {
+                //         id: '2123',
+                //         text: 'thro'
+                //     },
+
+            ]
+        }
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="Vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="inputValue" />
+        <button v-on:click="handleBtnClick">提交</button>
+        <ul>
+            <!-- <li v-for="item in list">{{ item }}</li> -->
+            <todo-item :content='item' :index="index" v-for="(item,index) in list" @delete="handleItemDelete">
+            </todo-item>
+        </ul>
+    </div>
+    <script>
+    //  全局组件定义
+    // Vue.component("TodoItem",{
+    //   props:['content'],
+    //   template: "<li @click="handleItemClick"> {{content}}</li>",
+    //   methods: {
+    //     handleItemClick:function(){
+    //       alter('click')
+    //     }
+    //   }
+    // })
+
+    // 局部组件
+    var TodoItem = {
+        props: ['content','index'],
+        template: '<li @click="handleItemClick">{{content}}</li>',
+        methods: {
+            handleItemClick: function() {
+                this.$emit('delete',this.index)
+            }
+        }
+    }
+    // 然后需要在var app 中写一个
+    // components:{TodoItem:TodoItem},
+    var app = new Vue({
+        el: "#app",
+        components: {
+            TodoItem: TodoItem
+        },
+        data: {
+            list: [],
+            inputValue: "",
+        },
+        methods: {
+            handleBtnClick: function() {
+                this.list.push(this.inputValue)
+                this.inputValue = ''
+            },
+            handleItemDelete: function(index) {
+                this.list.splice(index, 1)
+            }
+
+        },
+    });
+    </script>
+</body>
+
+</html>
