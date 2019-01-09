@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="Vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <counter :count="3"></counter>
+        <counter :count="4"></counter>
+    </div>
+    <script>
+    var counter = {
+        props: ['count'],
+        data: function() {
+            return {
+                number: this.count
+            }
+        },
+        template: '<div @click= "handleClick">{{number}}</div>',
+        methods: {
+            handleClick: function() {
+                this.number++
+            }
+        }
+    }
+
+    var vm = new Vue({
+        el: '#root',
+        components: {
+            counter: counter
+        }
+    })
+    </script>
+</body>
+
+</html>

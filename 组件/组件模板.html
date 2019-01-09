@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MUBAN </title>
+	<script src="Vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<!-- <child></child> -->
+		<child content="hhh hwewe"></child>
+	</div>
+	<script>
+
+		Vue.component('child',{
+			props:['content'],
+			// template:'<div>Child</div>'
+			template:'<div>{{content}}</div>'
+		})
+		var vm =  new Vue ({
+			el:'#root',
+
+		})
+	</script>
+</body>
+</html>
