@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>bus/观察者模式/发布订阅</title>
+    <title>非父子组件(bus/观察者模式/发布订阅)</title>
     <script src="Vue.js"></script>
 </head>
 
@@ -20,7 +20,7 @@
             return {
                 selfContent: this.content
             }
-        },
+        },//解决直接改变父组件的值的问题
         props: {
             content: String
         },
@@ -38,7 +38,6 @@
         }
     })
 
-    
     var vm = new Vue({
         el: '#root',
     })
