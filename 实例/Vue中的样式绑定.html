@@ -8,25 +8,23 @@
     <title>vue实例</title>
     <script src='Vue.js'></script>
     <style>
-        .activated{
-            color: red;
-        }
+    .activated {
+        color: red;
+    }
     </style>
 </head>
 
 <body>
     <div id="app">
-        <div @click="handleDivClick"
-                :class= "{activated:isActivated}">
+        <div @click="handleDivClick" :class="{activated:isActivated}">
             hello world
         </div>
     </div>
     <script>
-
     var vm = new Vue({
         el: '#app',
         data: {
-            isActivated:false
+            isActivated: false
         },
         methods: {
             handleDivClick: function() {
