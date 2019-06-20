@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page,index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
@@ -16,70 +16,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      iconList: [
-        {
-          id: 'ooo1',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点门票'
-        },
-        {
-          id: 'ooo2',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-          desc: '一日游'
-        },
-        {
-          id: 'ooo3',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-          desc: '成都必游'
-        },
-        {
-          id: 'ooo4',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/e3/67df61427c8e1302.png',
-          desc: '川剧变脸'
-        },
-        {
-          id: 'ooo5',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/b6/aae239efe3496602.png',
-          desc: '成都火锅'
-        },
-        {
-          id: 'ooo6',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/b8/c5dcdb58deec2402.png',
-          desc: '碧峰峡'
-        },
-        {
-          id: 'ooo7',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
-          desc: '国色天香'
-        },
-        {
-          id: 'ooo8',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/54/35899492b1302802.png',
-          desc: '熊猫基地'
-        },
-        {
-          id: 'ooo9',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-          desc: '光明顶'
-        }
-      ]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
@@ -137,6 +87,6 @@ export default {
   line-height: 0.44rem;
   text-align: center;
   color: $darkTextColor;
-  ellipsis()
+  ellipsis();
 }
 </style>

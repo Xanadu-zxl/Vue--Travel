@@ -2,7 +2,7 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <img class="item-img" :src="item.imgUrl"/>
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -17,39 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '0001',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/p0/1905/32/32ad7003179269d2a3.img.jpg_200x200_aee761e4.jpg',
-          title: '谭鸭血老火锅（太古里直营店）',
-          desc: '好吃的板丶真滴偶偶偶偶'
-        },
-        {
-          id: '0002',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/p0/1612/1d/1d9a740c1f9e0efaa3.img.jpg_200x200_63285bd9.jpg',
-          title: '成都海昌极地海洋公园',
-          desc: '好玩的板丶真滴偶偶偶偶'
-        },
-        {
-          id: '0003',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/p0/1704/a5/a59677101e07d38a3.img.jpg_200x200_6064e939.jpg',
-          title: '那是飞一样的感觉，国色天乡',
-          desc: '嗨皮的板丶真滴偶偶偶偶'
-        },
-        {
-          id: '0004',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/p0/201407/03/a584374ee80b738e2600d6bcaf1299e3.jpg_200x200_c26fb243.jpg',
-          title: '都江堰',
-          desc: '良辰美景，值得一来'
-        }
-      ]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
