@@ -1,2 +1,5 @@
-# Vue-Go-where-
-vue 2.5 去哪儿网实战Demo
+# Vue--Travel
+
+去哪儿网实战
+
+技术栈：vue+vuex+vue-router+webpack+stylus等
